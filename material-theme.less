@@ -1,0 +1,127 @@
+// Theme by Marc Jenkins (https://twitter.com/marcjenkins) 
+// Based on Material Theme for Sublime Text (https://github.com/equinusocio/material-theme) 
+
+// Fonts 
+@body-font: "SF UI Text";
+@project-font: "SF UI Display";
+
+// Colours 
+@red: #FF5370;
+@pink: #f07178;
+@orange: #F78C6C;
+@yellow: #FFCB6B;
+@green: #C3E88D;
+@pale-blue: #B2CCD6;
+@cyan: #89DDFF;
+@blue: #82AAFF;
+@purple: #C792EA;
+@violet: #bb80b3;
+@brown: #ab7967;
+@dark-blue: #263238;
+
+// Defaults 
+@font-family: @body-font;
+@background-color: @dark-blue;
+@text-color: @pale-blue;
+@tint-color: @cyan;
+@invisibles-color: mix(@tint-color, @background-color, 60%);
+@selection-color: mix(@tint-color, @background-color, 20%);
+
+// Set line height 
+item {
+  line-height-multiple: 1.4;
+}
+
+// Search bar 
+searchbar {
+  background-color: @background-color;
+  color: @pale-blue;
+}
+
+// Projects 
+item[data-type=project] {
+  font-family: @project-font;
+	font-size: @user-font-size * 1.2;
+  font-weight: bold;  
+}
+
+item[depth=1][data-type=project] {
+  paragraph-spacing-before: 20;
+  paragraph-spacing-after: 0;
+}
+
+// Links 
+run[link] {
+  text-decoration: underline;
+}
+
+// Dash
+run[link^="button"] {
+  color: mix(@text-color, @background-color, 50%);
+  text-decoration: none;
+  font-weight: normal;
+}
+
+// Tags
+run[tag] {
+  color: @green;
+  text-decoration: none;
+}
+
+// Tags
+item[data-today], run[tag=data-today] {
+  color: @orange;
+}
+
+run[tag=data-due] {
+  color: @yellow;
+}
+
+run[tag=data-start] {
+  color: @green;
+}
+
+item[data-important], run[tag=data-important] {
+  color: @red;
+}
+
+item[data-flag], run[tag=data-flag] {
+  color: @yellow;
+}
+
+item[data-priority] > run[tagvalue=high], item[data-priority=high] {
+  color: @red;
+}
+
+item[data-priority] > run[tagvalue=low], item[data-priority=low] {
+  color: mix(@text-color, @background-color, 50%);
+}
+
+run[tag=data-context] {
+  color: @blue;
+}
+
+item[data-waiting], run[tag=data-waiting] {
+  color: mix(@text-color, @background-color, 60%);
+}
+
+item[data-done], run[tag=data-done] {
+  color: mix(@text-color, @background-color, 30%);
+
+  > run[content] {
+  	text-strikethrough-color: mix(@text-color, @background-color, 30%);
+  }
+}
+
+// Notes 
+item[data-type="note"] {
+  > run[content] {
+    color: mix(@text-color, @background-color, 50%);
+  }
+  > run[link] {
+    color: @cyan;
+  }
+  > run[tag] {
+    color: @green;
+  }
+}
