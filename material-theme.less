@@ -1,9 +1,13 @@
 // Theme by Marc Jenkins (https://twitter.com/marcjenkins) 
 // Based on Material Theme for Sublime Text (https://github.com/equinusocio/material-theme) 
 
-// Fonts 
-@body-font: "SF UI Text";
-@project-font: "SF UI Display";
+// Font
+@font-family: "SF UI Text";
+
+// Window UI colour - comment out if you want to use the default light theme
+window {
+  appearance: NSAppearanceNameVibrantDark;
+}
 
 // Colours 
 @red: #FF5370;
@@ -19,8 +23,7 @@
 @brown: #ab7967;
 @dark-blue: #263238;
 
-// Defaults 
-@font-family: @body-font;
+// Defaults
 @background-color: @dark-blue;
 @text-color: @pale-blue;
 @tint-color: @cyan;
@@ -40,7 +43,6 @@ searchbar {
 
 // Projects 
 item[data-type=project] {
-  font-family: @project-font;
 	font-size: @user-font-size * 1.2;
   font-weight: bold;  
 }
@@ -105,11 +107,16 @@ item[data-waiting], run[tag=data-waiting] {
   color: mix(@text-color, @background-color, 60%);
 }
 
-item[data-done], run[tag=data-done] {
-  color: mix(@text-color, @background-color, 30%);
-
+item[data-done] {
   > run[content] {
-  	text-strikethrough-color: mix(@text-color, @background-color, 30%);
+    text-strikethrough: NSUnderlineStyleSingle;
+    text-strikethrough-color: mix(@text-color, @background-color, 30%);
+    color: mix(@text-color, @background-color, 30%);
+  }
+  > run[tag] {
+    text-strikethrough: NSUnderlineStyleSingle;
+    text-strikethrough-color: mix(@text-color, @background-color, 30%);
+    color: mix(@text-color, @background-color, 30%);
   }
 }
 
